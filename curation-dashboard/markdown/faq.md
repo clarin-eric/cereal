@@ -150,7 +150,7 @@
     
 1. **How can I configure the access for the Link Checker in my robots.txt?**
    
-   The Link Checker identifies himself with the User-agent string **CLARIN Linkchecker: https://www.clarin.eu/linkchecker**. A typical configuration 
+   The Link Checker identifies himself with the User-agent string `CLARIN Linkchecker: https://www.clarin.eu/linkchecker`. A typical configuration 
    to authorize the Link Checker to access all resources with a specific crawl delay of 5 seconds between each request would look like this:
    ```
    User-agent: CLARIN Linkchecker: https://www.clarin.eu/linkchecker
