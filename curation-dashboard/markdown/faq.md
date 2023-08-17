@@ -144,9 +144,9 @@
 1. **The Link Checker is making more requests than my server can handle, or
      even causing high loads on my servers. What should I do?**
 
-    The Link Checker respects in any case a minimum crawl delay of two seconds between to request on the same host. 
-    It respects any longer crawl delay which you might have configured in your `robots.txt` file, but will in any way keep a minimum crawl delay of 2 seconds. 
-    Hence, if you need a longer crawl delay, all you have to to is to add a specific setting to your `robots.txt` file. 
+    The Link Checker respects any crawl delay specified `robots.txt` file of the target host. If nothing is set there, 
+    it respects a minimum crawl delay of one second between two requests on the same host. 
+
     
 1. **How can I configure the access for the Link Checker in my robots.txt?**
    
