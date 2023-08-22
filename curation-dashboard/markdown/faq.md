@@ -37,15 +37,6 @@
     Yes, the Curation Dashboard doesn't process files larger than 50 megabytes. 
     Such files are ignored when collection reports are generated.
         
-1. **What is the Link Checker?**
-
-    The Link Checker is a stand alone application which checks the availability of a resource at the addresses
-    referenced in the metadata. In practice, the resources are URLs (or more commonly links),
-    which can be checked via HTTP requests. The Link Checker then saves the responses to the requests in a database. 
-    The links are extracted from CMD Records within the collections.
-    Results of the checking can be directly viewed on the [Link Checker Statistics page](https://curation.clarin.eu/statistics)
-    and they also affect the overall score of the collections. 
-    
 1. **How does scoring work?**
      
     A score value is calculated for profiles, instances and collections (which is the sum of its instance scores). 
@@ -85,7 +76,16 @@
     ||**Sum Resource Proxy**|[0, 2]|
     ||**Sum over all**|[0, 15]|
           
-    
+
+1. **What is the Link Checker?**
+
+    The Link Checker is a stand alone application which checks the availability of a resource at the addresses
+    referenced in the metadata. In practice, the resources are URLs (or more commonly links),
+    which can be checked via HTTP requests. The Link Checker then saves the responses to the requests in a database. 
+    The links are extracted from CMD Records within the collections.
+    Results of the checking can be directly viewed on the [Link Checker Statistics page](https://curation.clarin.eu/statistics)
+    and they also affect the overall score of the collections. 
+        
 1. **What technology is the Link Checker based?**
 
     The old implementation of the Link Checker was replaced by a new 
@@ -115,30 +115,24 @@
     Yes it does. It even records how many redirects the link points to. 
     However, there is a hard limit of 20 redirects.
     
-1. **What is 0 status code?**
-
-    Originally, we decided to regard any link, of which we can't get
-    a response to have the 0 status code. This bundled up links with 
-    many different problems into one and is not very clear. Therefore, 
-    we plan to get rid of the 0 status code. We will change the classification
-    system from status codes into categories to make the results more transparent.
-
 1. **What categories are there?**
 
-    Currently there are only 5 categories: 
+    Currently there are only 6 categories: 
     
     1. Ok
-    2. Broken
-    3. Undetermined
-    4. Restricted access
-    5. Blocked by robots.txt
+    2. Undetermined
+    3. Restricted access
+    4. Blocked by robots.txt
+    5. Broken
+    6. Invalid URL
+    
     
     They are color coded as green, red, yellow, blue and purple respectively. 
     
 1. **The Curation Dashboard reports my links incorrectly. What should I do?**
 
     If you suspect the reason for the reports being wrong is the Link Checker and your links work fine,
-    please create an issue on our [github page](https://github.com/clarin-eric/curation-dashboard/issues).     
+    please create an issue on our [github page](https://github.com/clarin-eric/curation-dashboard/issues).      
     
 1. **The byte size of my link is shown as null but the link has a correct response body. What's wrong?**
 
@@ -146,23 +140,25 @@
     requests don't contain a response payload by definition and Link Checker doesn't read the payload of
     `GET` requests to save bandwidth and time. Therefore the only reliable source is the `Content-Length` header.
     Please set it correctly wherever you can on your servers.
-    
-1. **What changes and new features are yet to be implemented?**
-
-    1. Change classification system from status codes into categories
-    2. Show historical results for the links (a list of every check of a particular link)
-    3. A csv file containing all the links in a particular link checker statistics view (it currently loads only 100 links)
-    4. A fast lane for links to check them as soon as possible (to avoid waiting 2 months to check a link again)
-    
-    If you wish to suggest a change or a new feature, feel free to do so on our [github page](https://github.com/clarin-eric/curation-dashboard/issues).
-    
+        
 1. **The Link Checker is making more requests than my server can handle, or
      even causing high loads on my servers. What should I do?**
 
-    The Link Checker respects `robots.txt` if the server provides it. If the server doesn't provide
-    any crawl delay information on its `robots.txt`, it will send requests as fast as it can 
-    but never more than one at a time. We absolutely want to avoid causing high loads
-    on your servers, so please [get in touch](mailto:linkchecker@clarin.eu), so that we can fix the issue.  
+    The Link Checker respects any crawl delay specified `robots.txt` file of the target host. If nothing is set there, 
+    it respects a minimum crawl delay of one second between two requests on the same host. 
+
+    
+1. **How can I configure the access for the Link Checker in my robots.txt?**
+   
+   The Link Checker identifies himself with the User-agent string `CLARIN Linkchecker: https://www.clarin.eu/linkchecker`. A typical configuration 
+   to authorize the Link Checker to access all resources with a specific crawl delay of 5 seconds between each request would look like this:
+   ```
+   User-agent: CLARIN Linkchecker: https://www.clarin.eu/linkchecker
+   Allow: /
+   Crawl-delay: 5
+   ``` 
+   
+   As a starting point for information on how to configure the access to your resources in a more elaborated way we recommend the official site [Robots.txt Files](https://search.gov/indexing/robotstxt.html).
     
 1. **Where does "Expected Content Type" come from?**
 
