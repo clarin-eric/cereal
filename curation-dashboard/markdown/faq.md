@@ -34,7 +34,7 @@
     
 1. **Is there a limit on file sizes?**
 
-    Yes, the Curation Dashboard doesn't process files larger than 50 megabytes. 
+    Yes, the Curation Dashboard doesn't process files larger than 100 megabytes. 
     Such files are ignored when collection reports are generated.
         
 1. **How does scoring work?**
@@ -99,7 +99,7 @@
     within the records are extracted and saved into
     a database. The Link Checker then continuously checks these links and saves their results in the database. 
     At the time of writing, there
-    are approximately 7 million links, so the Link Checker never stops. It takes approximately two months to go over all the links.
+    are approximately 3 million links, so the Link Checker never stops. It takes approximately two months to go over all the links.
     When it's finished, it restarts, so that the results can stay up-to-date. Note
     that as a result of the prioritisation logic inside the Link Checker,
     it doesn't necessarily take two months before the status of a given link is updated.
