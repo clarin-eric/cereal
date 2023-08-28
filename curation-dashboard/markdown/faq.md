@@ -126,8 +126,10 @@
     5. Broken
     6. Invalid URL
     
-    
-    They are color coded as green, red, yellow, blue and purple respectively. 
+1. **Is there a maximum response time?**
+
+   There is indeed a maximum response time of 5 seconds. If the Link Checker doesn't receive any response within that period if time, 
+   the link is qualified as `Broken`.        
     
 1. **The Curation Dashboard reports my links incorrectly. What should I do?**
 
@@ -146,7 +148,6 @@
 
     The Link Checker respects any crawl delay specified `robots.txt` file of the target host. If nothing is set there, 
     it respects a minimum crawl delay of one second between two requests on the same host. 
-
     
 1. **How can I configure the access for the Link Checker in my robots.txt?**
    
