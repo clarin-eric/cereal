@@ -95,14 +95,20 @@
 
 1. **How does the Link Checker work?**
 
-    When the Curation Dashboard generates its collection reports, all resource links
+    When the Curation Dashboard generates its collection reports, all resource links and self links
     within the records are extracted and saved into
     a database. The Link Checker then continuously checks these links and saves their results in the database. 
-    At the time of writing, there
-    are approximately 3 million links, so the Link Checker never stops. It takes approximately two months to go over all the links.
-    When it's finished, it restarts, so that the results can stay up-to-date. Note
-    that as a result of the prioritisation logic inside the Link Checker,
-    it doesn't necessarily take two months before the status of a given link is updated.
+    At the time of writing, there are approximately 3 million links, which are permanently checked in 50 parallel checking queues - one queue per host. 
+    The processing inside each queue is strictly serial, means the Link Checker sends one request after the other to the same host with respect of 
+    a crawl delay of one second. The crawl delay might be longer or shorter, depending on what is specified in the host's robots.txt, but remains in 
+    any case strictly serial. 
+    Hence the period of time between two checks on the same link depends on the total number of links on the same host and the crawl delay, with respect 
+    of a minimum of 24h between two checks of the same link. 
+    The order of links in the checking queue is: 
+    
+    - prioritized links first
+    - then the unchecked links
+    - further on in the order of the latest check
     
 1. **What request method does the Link Checker use?**
 
@@ -125,6 +131,7 @@
     4. Blocked by robots.txt
     5. Broken
     6. Invalid URL
+
     
 1. **Is there a maximum response time?**
 
