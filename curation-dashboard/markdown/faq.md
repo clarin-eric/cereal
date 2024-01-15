@@ -161,7 +161,7 @@
    The Link Checker identifies himself with the User-agent string `CLARIN Linkchecker: https://www.clarin.eu/linkchecker`. A typical configuration 
    to authorize the Link Checker to access all resources with a specific crawl delay of 5 seconds between each request would look like this:
    ```
-   User-agent: CLARIN Linkchecker: https://www.clarin.eu/linkchecker
+   User-agent: CLARIN Linkchecker
    Allow: /
    Crawl-delay: 5
    ``` 
