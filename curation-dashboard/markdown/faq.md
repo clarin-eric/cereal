@@ -55,7 +55,7 @@
     
     |Context|Criteria|Value set|
     |---|---|---|
-    |File size|File size <= defined file size?|{0, 1}
+    |File size|File size <= defined file size?|{0, 1}|
     ||**Sum File size**|{0, 1}|
     |Header|Valid schema location from attribute “schemaLocation” or “noNamespaceSchemaLocation” available?|{0, 1}|
     |Header|Schema comes from Component Registry?|{0, 1}|
@@ -161,7 +161,7 @@
    The Link Checker identifies himself with the User-agent string `CLARIN Linkchecker: https://www.clarin.eu/linkchecker`. A typical configuration 
    to authorize the Link Checker to access all resources with a specific crawl delay of 5 seconds between each request would look like this:
    ```
-   User-agent: CLARIN Linkchecker
+   User-agent: CLARIN-Linkchecker
    Allow: /
    Crawl-delay: 5
    ``` 
