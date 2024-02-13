@@ -164,10 +164,14 @@
    User-agent: CLARIN-Linkchecker
    Allow: /
    Crawl-delay: 5
-   ``` 
-   
+   ```   
    As a starting point for information on how to configure the access to your resources in a more elaborated way we recommend the official site [Robots.txt Files](https://search.gov/indexing/robotstxt.html).
-    
+
+1. **How does the Link Checker identify himself?**
+
+    The Link Checker sends the following User-Agent request header to identify himself:  
+   `"User-Agent" : "CLARIN-Linkchecker/<Link Checker version> (build with Apache Storm <Apache Storm version>/Storm Crawler <Storm Crawler version>; https://www.clarin.eu/linkchecker; linkchecker@clarin.eu)"`
+
 1. **Where does "Expected Content Type" come from?**
 
     It is extracted from CMD Records. It is however not specified for all links.
