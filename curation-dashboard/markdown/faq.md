@@ -55,7 +55,7 @@
     
     |Context|Criteria|Value set|
     |---|---|---|
-    |File size|File size <= defined file size?|{0, 1}
+    |File size|File size <= defined file size?|{0, 1}|
     ||**Sum File size**|{0, 1}|
     |Header|Valid schema location from attribute “schemaLocation” or “noNamespaceSchemaLocation” available?|{0, 1}|
     |Header|Schema comes from Component Registry?|{0, 1}|
@@ -161,13 +161,17 @@
    The Link Checker identifies himself with the User-agent string `CLARIN Linkchecker: https://www.clarin.eu/linkchecker`. A typical configuration 
    to authorize the Link Checker to access all resources with a specific crawl delay of 5 seconds between each request would look like this:
    ```
-   User-agent: CLARIN Linkchecker
+   User-agent: CLARIN-Linkchecker
    Allow: /
    Crawl-delay: 5
-   ``` 
-   
+   ```   
    As a starting point for information on how to configure the access to your resources in a more elaborated way we recommend the official site [Robots.txt Files](https://search.gov/indexing/robotstxt.html).
-    
+
+1. **How does the Link Checker identify himself?**
+
+    The Link Checker sends the following User-Agent request header to identify himself:  
+   `"User-Agent" : "CLARIN-Linkchecker/<Link Checker version> (build with Apache Storm <Apache Storm version>/Storm Crawler <Storm Crawler version>; https://www.clarin.eu/linkchecker; linkchecker@clarin.eu)"`
+
 1. **Where does "Expected Content Type" come from?**
 
     It is extracted from CMD Records. It is however not specified for all links.
