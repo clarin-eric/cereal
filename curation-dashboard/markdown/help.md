@@ -31,4 +31,4 @@ It checks constantly and repeatedly (with respecting the robots.txt files) all t
 This module is maintained in a [separate code-base](https://github.com/clarin-eric/linkchecker).
 
 ## Frequently Asked Questions and Feedback
-You may go to our [faq](/faq) page, which tries to answer the most common questions. If your question is not answered, feel free to create an issue on our github page, reachable via [feedback](https://github.com/clarin-eric/curation-dashboard/issues). 
+You may go to our [faq](/faq) page, which tries to answer the most common questions. If your question is not answered, feel free to [mail](mailto:curation@clarin.eu) us. 

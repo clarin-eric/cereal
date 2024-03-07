@@ -178,8 +178,8 @@
     
 1. **I have more questions. Where can I ask them?**
 
-    Feel free to ask any questions by creating issues on our [github page](https://github.com/clarin-eric/curation-dashboard/issues).
+   Feel free to [mail](mailto:curation@clarin.eu) us.
     
 1. **Where can I report issues?**
 
-    Feel free to report issues on our [github page](https://github.com/clarin-eric/curation-dashboard/issues).
+    Feel free to [mail](mailto:curation@clarin.eu) us.
