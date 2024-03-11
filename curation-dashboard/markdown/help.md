@@ -21,9 +21,9 @@ The reports are re-generated regularly (twice weekly) on the most recent dump of
 ## Curation-web
 This is the user facing web application. It offers four main functions: 
 * on the fly [validation of individual profiles and metadata records](https://curation.clarin.eu/) (either by their URLs or uploading them as files)
-* presenting pre-computed statistics for [CMD profiles](https://curation.clarin.eu/profile/table)
-* presenting pre-computed statistics for [collections](https://curation.clarin.eu/collection/table)
-* presenting pre-computed statistics for [link checking](https://curation.clarin.eu/statistics) and a continuously generated statistics in detail view
+* presenting pre-computed statistics for [CMD profiles](https://curation.clarin.eu/profile)
+* presenting pre-computed statistics for [collections](https://curation.clarin.eu/collection)
+* presenting pre-computed statistics for [link checking](https://curation.clarin.eu/linkchecker) and a continuously generated statistics in detail view
 (hence values might differ if links of the provider have been checked in the meantime)
 
 ## Linchecker
