@@ -1,4 +1,5 @@
 # Frequently Asked Questions
+## General
 
 1. **What is the Curation Dashboard?**
 
@@ -13,6 +14,7 @@
     For a general overview of VLO, you can visit its [about page](https://vlo.clarin.eu/about). 
     For more general info, [the CLARIN Metadata FAQ page](https://vlo.clarin.eu/about) is a good starting point.
 
+## Curation dashboard
 1. **What does the Curation Dashboard do exactly?**
 
     The Curation Dashboard processes publicly available CMDI records, 
@@ -41,42 +43,43 @@
      
     A score value is calculated for profiles, instances and collections (which is the sum of its instance scores). 
     The next two tables show the criteria on which the scoring is based on as well as the value set:
-
+\
+\
     **Profile**
     
-    |Context|Criteria|Value set|
-    |---|---|---|
-    |Header|Profile is public?|{0, 1}|
-    |Facet|Percentage of defined facets covered by profile|[0, 1]|
-    |Cmd-concepts|Percentage of elements (except header and resources) with concept|[0, 1]|
-    ||**Sum**|[0, 3]|
-    
+    | Context      | Criteria                                                          | Value set |
+    |--------------|-------------------------------------------------------------------|-----------|
+    | Header       | Profile is public?                                                | {0, 1}    |
+    | Facet        | Percentage of defined facets covered by profile                   | [0, 1]    |
+    | Cmd-concepts | Percentage of elements (except header and resources) with concept | [0, 1]    |
+    |              | **Sum**                                                           | [0, 3]    |
+
     **Instance**
     
-    |Context|Criteria|Value set|
-    |---|---|---|
-    |File size|File size <= defined file size?|{0, 1}|
-    ||**Sum File size**|{0, 1}|
-    |Header|Valid schema location from attribute “schemaLocation” or “noNamespaceSchemaLocation” available?|{0, 1}|
-    |Header|Schema comes from Component Registry?|{0, 1}|
-    |Header|MdProfile available and valid (against regular expression)?|{0, 1}|
-    |Header|MdCollectionDisplayName available?|{0, 1}|
-    |Header|MdSelfLink available?|{0, 1}|
-    ||**Sum Header**|{1,..., 5}|
-    |Facet|Percentage of of defined facets covered by instance|[0, 1]|
-    ||**Sum Facet**|[0, 1]|
-    |URL|Percentage of valid links|[0, 1]|
-    ||**Sum URL**|[0, 1]|
-    |XML|Is the xml valid?|{0, 1}|
-    |XML|Percentage of populated elements|[0, 1]|
-    ||**Sum XML**|[0, 2]|
-    ||**Sum Profile**|[0, 3]|
-    |Resource Proxy|Percentage of RP with mime type|[0, 1]|
-    |Resource Proxy|Percentage of RP with references|[0, 1]|
-    ||**Sum Resource Proxy**|[0, 2]|
-    ||**Sum over all**|[0, 15]|
+    | Context        | Criteria                                                                                        | Value set | Sum            |
+    |----------------|-------------------------------------------------------------------------------------------------|-----------|----------------|
+    | File size      | File size <= defined file size?                                                                 | {0, 1}    |                |
+    |                | **File size**                                                                                   |           | **{0, 1}**     |
+    | Header         | Valid schema location from attribute “schemaLocation” OR “noNamespaceSchemaLocation” available? | {0, 1}    |                |
+    | Header         | Schema comes from Component Registry?                                                           | {0, 1}    |                |
+    | Header         | MdProfile available and valid (against regular expression)?                                     | {0, 1}    |                |
+    | Header         | MdCollectionDisplayName available?                                                              | {0, 1}    |                |
+    | Header         | MdSelfLink available?                                                                           | {0, 1}    |                |
+    |                | **Header**                                                                                      |           | **{1,..., 5}** |
+    | Facet          | Percentage of of defined facets covered by instance                                             | [0, 1]    |                |
+    |                | **Facet**                                                                                       |           | **[0, 1]**     |
+    | URL            | Percentage of valid links                                                                       | [0, 1]    |                |
+    |                | **URL**                                                                                         |           | **[0, 1]**     |
+    | XML            | Is the xml valid?                                                                               | {0, 1}    |                |
+    | XML            | Percentage of populated elements                                                                | [0, 1]    |                |
+    |                | **XML**                                                                                         |           | **[0, 2]**     |
+    |                | **Profile**                                                                                     |           | **[0, 3]**     |
+    | Resource Proxy | Percentage of RP with mime type                                                                 | [0, 1]    |                |
+    | Resource Proxy | Percentage of RP with references                                                                | [0, 1]    |                |
+    |                | **Resource Proxy**                                                                              |           | **[0, 2]**     |
+    |                | **Over all**                                                                                    |           | **[0, 15]**    |
           
-
+## Link checker
 1. **What is the Link Checker?**
 
     The Link Checker is a stand alone application which checks the availability of a resource at the addresses
@@ -102,7 +105,7 @@
     The processing inside each queue is strictly serial, means the Link Checker sends one request after the other to the same host with respect of 
     a crawl delay of one second. The crawl delay might be longer or shorter, depending on what is specified in the host's robots.txt, but remains in 
     any case strictly serial. 
-    Hence the period of time between two checks on the same link depends on the total number of links on the same host and the crawl delay, with respect 
+    Hence, the period of time between two checks on the same link depends on the total number of links on the same host and the crawl delay, with respect 
     of a minimum of 24h between two checks of the same link. 
     The order of links in the checking queue is: 
     
@@ -132,7 +135,6 @@
     5. Broken
     6. Invalid URL
 
-    
 1. **Is there a maximum response time?**
 
    There is indeed a maximum response time of 5 seconds. If the Link Checker doesn't receive any response within that period if time, 
@@ -158,12 +160,13 @@
     
 1. **How can I configure the access for the Link Checker in my robots.txt?**
    
-   The Link Checker identifies himself with the User-agent string `CLARIN Linkchecker: https://www.clarin.eu/linkchecker`. A typical configuration 
-   to authorize the Link Checker to access all resources with a specific crawl delay of 5 seconds between each request would look like this:
+   A typical configuration 
+   to authorize the Link Checker to access all resources with a specific crawl delay of 1 second between each request 
+   (which is currently the default when nothing else is set in robots.txt) would look like this:
    ```
    User-agent: CLARIN-Linkchecker
    Allow: /
-   Crawl-delay: 5
+   Crawl-delay: 1
    ```   
    As a starting point for information on how to configure the access to your resources in a more elaborated way we recommend the official site [Robots.txt Files](https://search.gov/indexing/robotstxt.html).
 
