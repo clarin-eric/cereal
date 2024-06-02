@@ -80,7 +80,7 @@
     |                | **Over all**                                                                                    |              | **\[0, 15\]**[^2] |
 
 [^1]: the number of valid links is not scored for user upload. To me the scores comparable, we're weighting the score with the percentage of checked links. 
-If, for example we have checked only one line out of hundred, the maximum score can only be 0.01
+  If, for example we have checked only one line out of hundred, the maximum score can only be 0.01
 [^2]: because of the particular handling of the URL the maximum score can vary between 14 and 15 
           
 ## Link checker
