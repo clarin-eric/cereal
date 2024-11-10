@@ -39,7 +39,7 @@
     Yes, the Curation Dashboard doesn't process files larger than 100 megabytes. 
     Such files are ignored when collection reports are generated.
         
-1. **How does scoring work?**
+ **How does scoring work?**
      
     A score value is calculated for profiles, instances and collections (which is the sum of its instance scores). 
     The next two tables show the criteria on which the scoring is based on as well as the value set:
@@ -65,7 +65,8 @@
     | Header         | MdProfile available and valid (against regular expression)?                                     | {0, 1}     |                 |
     | Header         | MdCollectionDisplayName available?                                                              | {0, 1}     |                 |
     | Header         | MdSelfLink available?                                                                           | {0, 1}     |                 |
-    |                | **Header**                                                                                      |            | **{1,..., 5}**  |
+    | Header         | MdSelfLink unique? (only scored on collection level)                                            | {0, 1}     |                 |
+    |                | **Header**                                                                                      |            | **{1,..., 6}**  |
     | Facet          | Percentage of of defined facets covered by instance                                             | \[0, 1]    |                 |
     |                | **Facet**                                                                                       |            | **\[0, 1]**     |
     | URL            | Percentage of valid links                                                                       | \[0, 1\] ² |                 |
@@ -77,7 +78,7 @@
     | Resource Proxy | Percentage of RP with mime type                                                                 | \[0, 1]    |                 |
     | Resource Proxy | Percentage of RP with references                                                                | \[0, 1]    |                 |
     |                | **Resource Proxy**                                                                              |            | **\[0, 2]**     |
-    |                | **Over all**                                                                                    |            | **\[0, 15\]** ³ |
+    |                | **Over all**                                                                                    |            | **\[0, 16\]** ³ |
 
 ¹ file size <= maximum file size AND valid schema location AND at least one resource link AND xml parsing messages with 
    status fatal or error < 3
