@@ -50,9 +50,10 @@
     | Context      | Criteria                                                          | Value set |
     |--------------|-------------------------------------------------------------------|-----------|
     | Header       | Profile is public?                                                | {0, 1}    |
+    | Header       | Schema comes from Component Registry?                             | {0, 1}    |
     | Facet        | Percentage of defined facets covered by profile                   | [0, 1]    |
     | Cmd-concepts | Percentage of elements (except header and resources) with concept | [0, 1]    |
-    |              | **Sum**                                                           | [0, 3]    |
+    |              | **Sum**                                                           | [0, 4]    |
 
     **Instance**
     
@@ -61,12 +62,11 @@
     | File           | Valid file? ¹                                                                                   | {0, 1}     |                 |
     |                | **File**                                                                                        |            | **{0, 1}**      |
     | Header         | Valid schema location from attribute “schemaLocation” OR “noNamespaceSchemaLocation” available? | {0, 1}     |                 |
-    | Header         | Schema comes from Component Registry?                                                           | {0, 1}     |                 |
     | Header         | MdProfile available and valid (against regular expression)?                                     | {0, 1}     |                 |
     | Header         | MdCollectionDisplayName available?                                                              | {0, 1}     |                 |
     | Header         | MdSelfLink available?                                                                           | {0, 1}     |                 |
     | Header         | MdSelfLink unique? (only scored on collection level)                                            | {0, 1}     |                 |
-    |                | **Header**                                                                                      |            | **{1,..., 6}**  |
+    |                | **Header**                                                                                      |            | **{1,..., 5}**  |
     | Facet          | Percentage of of defined facets covered by instance                                             | \[0, 1]    |                 |
     |                | **Facet**                                                                                       |            | **\[0, 1]**     |
     | URL            | Percentage of valid links                                                                       | \[0, 1\] ² |                 |
