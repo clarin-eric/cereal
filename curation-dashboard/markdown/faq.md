@@ -45,7 +45,7 @@ A score value is calculated for profiles, instances and collections (which is th
 The next two tables show the criteria on which the scoring is based on as well as the value set:
 \
 \
-    **Profile**
+**Profile**
     
 | Context      | Criteria                                                          | Value set |
 |--------------|-------------------------------------------------------------------|-----------|
@@ -54,8 +54,8 @@ The next two tables show the criteria on which the scoring is based on as well a
 | Facet        | Percentage of defined facets covered by profile                   | [0, 1]    |
 | Cmd-concepts | Percentage of elements (except header and resources) with concept | [0, 1]    |
 |              | **Sum**                                                           | [0, 4]    |
-\
-    **Instance**
+
+**Instance**
     
 | Context        | Criteria                                                                                        | Value set  | Sum             |
 |----------------|-------------------------------------------------------------------------------------------------|------------|-----------------|
