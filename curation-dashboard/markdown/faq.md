@@ -41,44 +41,44 @@
         
  **How does scoring work?**
      
-    A score value is calculated for profiles, instances and collections (which is the sum of its instance scores). 
-    The next two tables show the criteria on which the scoring is based on as well as the value set:
+A score value is calculated for profiles, instances and collections (which is the sum of its instance scores). 
+The next two tables show the criteria on which the scoring is based on as well as the value set:
 \
 \
     **Profile**
     
-    | Context      | Criteria                                                          | Value set |
-    |--------------|-------------------------------------------------------------------|-----------|
-    | Header       | Profile is public?                                                | {0, 1}    |
-    | Header       | Schema comes from Component Registry?                             | {0, 1}    |
-    | Facet        | Percentage of defined facets covered by profile                   | [0, 1]    |
-    | Cmd-concepts | Percentage of elements (except header and resources) with concept | [0, 1]    |
-    |              | **Sum**                                                           | [0, 4]    |
-
+| Context      | Criteria                                                          | Value set |
+|--------------|-------------------------------------------------------------------|-----------|
+| Header       | Profile is public?                                                | {0, 1}    |
+| Header       | Schema comes from Component Registry?                             | {0, 1}    |
+| Facet        | Percentage of defined facets covered by profile                   | [0, 1]    |
+| Cmd-concepts | Percentage of elements (except header and resources) with concept | [0, 1]    |
+|              | **Sum**                                                           | [0, 4]    |
+\
     **Instance**
     
-    | Context        | Criteria                                                                                        | Value set  | Sum             |
-    |----------------|-------------------------------------------------------------------------------------------------|------------|-----------------|
-    | File           | Valid file? ¹                                                                                   | {0, 1}     |                 |
-    |                | **File**                                                                                        |            | **{0, 1}**      |
-    | Header         | Valid schema location from attribute “schemaLocation” OR “noNamespaceSchemaLocation” available? | {0, 1}     |                 |
-    | Header         | MdProfile available and valid (against regular expression)?                                     | {0, 1}     |                 |
-    | Header         | MdCollectionDisplayName available?                                                              | {0, 1}     |                 |
-    | Header         | MdSelfLink available?                                                                           | {0, 1}     |                 |
-    | Header         | MdSelfLink unique? (only scored on collection level)                                            | {0, 1}     |                 |
-    |                | **Header**                                                                                      |            | **{1,..., 5}**  |
-    | Facet          | Percentage of of defined facets covered by instance                                             | \[0, 1]    |                 |
-    |                | **Facet**                                                                                       |            | **\[0, 1]**     |
-    | URL            | Percentage of valid links                                                                       | \[0, 1\] ² |                 |
-    |                | **URL**                                                                                         |            | **\[0, 1\]** ²  |
-    | XML            | Is the xml valid?                                                                               | {0, 1}     |                 |
-    | XML            | Percentage of populated elements                                                                | \[0, 1]    |                 |
-    |                | **XML**                                                                                         |            | **\[0, 2]**     |
-    |                | **Profile**                                                                                     |            | **\[0, 3]**     |
-    | Resource Proxy | Percentage of RP with mime type                                                                 | \[0, 1]    |                 |
-    | Resource Proxy | Percentage of RP with references                                                                | \[0, 1]    |                 |
-    |                | **Resource Proxy**                                                                              |            | **\[0, 2]**     |
-    |                | **Over all**                                                                                    |            | **\[0, 16\]** ³ |
+| Context        | Criteria                                                                                        | Value set  | Sum             |
+|----------------|-------------------------------------------------------------------------------------------------|------------|-----------------|
+| File           | Valid file? ¹                                                                                   | {0, 1}     |                 |
+|                | **File**                                                                                        |            | **{0, 1}**      |
+| Header         | Valid schema location from attribute “schemaLocation” OR “noNamespaceSchemaLocation” available? | {0, 1}     |                 |
+| Header         | MdProfile available and valid (against regular expression)?                                     | {0, 1}     |                 |
+| Header         | MdCollectionDisplayName available?                                                              | {0, 1}     |                 |
+| Header         | MdSelfLink available?                                                                           | {0, 1}     |                 |
+| Header         | MdSelfLink unique? (only scored on collection level)                                            | {0, 1}     |                 |
+|                | **Header**                                                                                      |            | **{1,..., 5}**  |
+| Facet          | Percentage of of defined facets covered by instance                                             | \[0, 1]    |                 |
+|                | **Facet**                                                                                       |            | **\[0, 1]**     |
+| URL            | Percentage of valid links                                                                       | \[0, 1\] ² |                 |
+|                | **URL**                                                                                         |            | **\[0, 1\]** ²  |
+| XML            | Is the xml valid?                                                                               | {0, 1}     |                 |
+| XML            | Percentage of populated elements                                                                | \[0, 1]    |                 |
+|                | **XML**                                                                                         |            | **\[0, 2]**     |
+|                | **Profile**                                                                                     |            | **\[0, 3]**     |
+| Resource Proxy | Percentage of RP with mime type                                                                 | \[0, 1]    |                 |
+| Resource Proxy | Percentage of RP with references                                                                | \[0, 1]    |                 |
+|                | **Resource Proxy**                                                                              |            | **\[0, 2]**     |
+|                | **Over all**                                                                                    |            | **\[0, 16\]** ³ |
 
 ¹ file size <= maximum file size AND valid schema location AND at least one resource link AND xml parsing messages with 
    status fatal or error < 3
@@ -86,7 +86,7 @@
 ² the number of valid links is not scored for user upload. To me the scores comparable, we're weighting the score with the percentage of checked links. 
   If, for example we have checked only one line out of hundred, the maximum score can only be 0.01
 
-³ because of the particular handling of the URL the maximum score can vary between 14 and 15 
+³ because of the particular handling of the URL and the uniqueness of MdSelfLink in collections the maximum can vary between 14 and 16 
           
 ## Link checker
 1. **What is the Link Checker?**
