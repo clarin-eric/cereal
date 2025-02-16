@@ -74,13 +74,13 @@ The next two tables show the criteria on which the scoring is based on as well a
 |                | **Resource Proxy**                                                                             |               | **\[0, 2]**       |
 |                | **Over all**                                                                                   |               | **\[0, 16\]**[^3] |
 
-[^1] file size <= maximum file size AND valid schema location AND at least one resource link AND xml parsing messages with 
+[^1]: file size <= maximum file size AND valid schema location AND at least one resource link AND xml parsing messages with 
    status fatal or error < 3
 
-[^2] the number of valid links is not scored for user upload. To me the scores comparable, we're weighting the score with the percentage of checked links. 
+[^2]: the number of valid links is not scored for user upload. To me the scores comparable, we're weighting the score with the percentage of checked links. 
   If, for example we have checked only one line out of hundred, the maximum score can only be 0.01
 
-[^3] because of the particular handling of the URL and the uniqueness of MdSelfLink in collections the maximum can vary between 14 and 16 
+[^3]: because of the particular handling of the URL and the uniqueness of MdSelfLink in collections the maximum can vary between 14 and 16 
           
 ## Link checker
 ### What is the Link Checker?
