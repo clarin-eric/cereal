@@ -51,28 +51,28 @@ The next two tables show the criteria on which the scoring is based on as well a
 
 **Instance**
     
-| Context        | Criteria                                                                                        | Value set     | Sum                |
-|----------------|-------------------------------------------------------------------------------------------------|---------------|--------------------|
-| File           | Valid file? [^1]                                                                                | {0, 1}        |                    |
-|                | **File**                                                                                        |               | **{0, 1}**         |
-| Header         | Valid schema location from attribute “schemaLocation” OR “noNamespaceSchemaLocation” available? | {0, 1}        |                    |
-| Header         | MdProfile available and valid (against regular expression)?                                     | {0, 1}        |                    |
-| Header         | MdCollectionDisplayName available?                                                              | {0, 1}        |                    |
-| Header         | MdSelfLink available?                                                                           | {0, 1}        |                    |
-| Header         | MdSelfLink unique? (only scored on collection level)                                            | {0, 1}        |                    |
-|                | **Header**                                                                                      |               | **{1,..., 5}**     |
-| Facet          | Percentage of of defined facets covered by instance                                             | \[0, 1]       |                    |
-|                | **Facet**                                                                                       |               | **\[0, 1]**        |
-| URL            | Percentage of valid links                                                                       | \[0, 1\] [^2] |                    |
-|                | **URL**                                                                                         |               | **\[0, 1\]** [^2]  |
-| XML            | Is the xml valid?                                                                               | {0, 1}        |                    |
-| XML            | Percentage of populated elements                                                                | \[0, 1]       |                    |
-|                | **XML**                                                                                         |               | **\[0, 2]**        |
-|                | **Profile**                                                                                     |               | **\[0, 3]**        |
-| Resource Proxy | Percentage of RP with mime type                                                                 | \[0, 1]       |                    |
-| Resource Proxy | Percentage of RP with references                                                                | \[0, 1]       |                    |
-|                | **Resource Proxy**                                                                              |               | **\[0, 2]**        |
-|                | **Over all**                                                                                    |               | **\[0, 16\]** [^3] |
+| Context        | Criteria                                                                                       | Value set     | Sum               |
+|----------------|------------------------------------------------------------------------------------------------|---------------|-------------------|
+| File           | Valid file?[^1]                                                                                | {0, 1}        |                   |
+|                | **File**                                                                                       |               | **{0, 1}**        |
+| Header         | Valid schema location from attribute “schemaLocation” OR “noNamespaceSchemaLocation” available? | {0, 1}        |                   |
+| Header         | MdProfile available and valid (against regular expression)?                                    | {0, 1}        |                   |
+| Header         | MdCollectionDisplayName available?                                                             | {0, 1}        |                   |
+| Header         | MdSelfLink available?                                                                          | {0, 1}        |                   |
+| Header         | MdSelfLink unique? (only scored on collection level)                                           | {0, 1}        |                   |
+|                | **Header**                                                                                     |               | **{1,..., 5}**    |
+| Facet          | Percentage of of defined facets covered by instance                                            | \[0, 1]       |                   |
+|                | **Facet**                                                                                      |               | **\[0, 1]**       |
+| URL            | Percentage of valid links                                                                      | \[0, 1\] [^2] |                   |
+|                | **URL**                                                                                        |               | **\[0, 1\]**[^2]  |
+| XML            | Is the xml valid?                                                                              | {0, 1}        |                   |
+| XML            | Percentage of populated elements                                                               | \[0, 1]       |                   |
+|                | **XML**                                                                                        |               | **\[0, 2]**       |
+|                | **Profile**                                                                                    |               | **\[0, 3]**       |
+| Resource Proxy | Percentage of RP with mime type                                                                | \[0, 1]       |                   |
+| Resource Proxy | Percentage of RP with references                                                               | \[0, 1]       |                   |
+|                | **Resource Proxy**                                                                             |               | **\[0, 2]**       |
+|                | **Over all**                                                                                   |               | **\[0, 16\]**[^3] |
 
 [^1] file size <= maximum file size AND valid schema location AND at least one resource link AND xml parsing messages with 
    status fatal or error < 3
