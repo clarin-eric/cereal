@@ -46,9 +46,8 @@ The next two tables show the criteria on which the scoring is based on as well a
 |--------------|-------------------------------------------------------------------|-----------|
 | Header       | Profile is public?                                                | {0, 1}    |
 | Header       | Schema comes from Component Registry?                             | {0, 1}    |
-| Facet        | Percentage of defined facets covered by profile                   | [0, 1]    |
 | Cmd-concepts | Percentage of elements (except header and resources) with concept | [0, 1]    |
-|              | **Sum**                                                           | [0, 4]    |
+|              | **Sum**                                                           | [0, 3]    |
 
 **Instance**
     
@@ -73,7 +72,7 @@ The next two tables show the criteria on which the scoring is based on as well a
 | Resource Proxy | Percentage of RP with mime type                                                                 | \[0, 1]    |                 |
 | Resource Proxy | Percentage of RP with references                                                                | \[0, 1]    |                 |
 |                | **Resource Proxy**                                                                              |            | **\[0, 2]**     |
-|                | **Over all**                                                                                    |            | **\[0, 16\]** ³ |
+|                | **Over all**                                                                                    |            | **\[0, 15\]** ³ |
 
 ¹ file size <= maximum file size AND valid schema location AND at least one resource link AND xml parsing messages with 
    status fatal or error < 3
@@ -81,7 +80,7 @@ The next two tables show the criteria on which the scoring is based on as well a
 ² the number of valid links is not scored for user upload. To me the scores comparable, we're weighting the score with the percentage of checked links. 
   If, for example we have checked only one line out of hundred, the maximum score can only be 0.01
 
-³ because of the particular handling of the URL and the uniqueness of MdSelfLink in collections the maximum can vary between 14 and 16 
+³ because of the particular handling of the URL and the uniqueness of MdSelfLink in collections the maximum can vary between 14 and 15 
           
 ## Link checker
 ### What is the Link Checker?
