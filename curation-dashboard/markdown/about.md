@@ -1,6 +1,6 @@
 # Information about Curation Dashboard
 ## Introduction
-Curation Dashboard is a service originally developed by the technical team of the [ACDH-CH](https://www.oeaw.ac.at/acdh) 
+Curation Dashboard is a service originally developed by the technical team of the [ACDH](https://www.oeaw.ac.at/acdh) 
 hosted and maintained by [CLARIN-ERIC](https://www.clarin.eu/). Its goal is to support CMD metadata authors and curators to improve quality 
 of metadata for language resources. More information: 
 
